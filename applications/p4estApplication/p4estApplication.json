@@ -1,0 +1,10 @@
+{
+	"wheel_name": "Kratosp4estApplication",
+	"included_modules": ["p4estApplication"],
+	"included_binaries": ["Kratosp4estApplication.*", "Kratosp4estCore.*", "libKratosp4estCore.*"],
+	"dependencies": ["KratosMultiphysics==${KRATOS_VERSION}"],
+	"author": "Tor-Haakon Gjone",
+	"author_email": "mail@torhgjone.no",
+	"description": "KRATOS Multiphysics (\"Kratos\") is a framework for building parallel, multi-disciplinary simulation software, aiming at modularity, extensibility, and high performance. Kratos is written in C++, and counts with an extensive Python interface.",
+	"readme": "applications/p4estApplication/README.md"
+}
