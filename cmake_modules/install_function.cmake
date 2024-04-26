@@ -1,3 +1,18 @@
+
+macro(desymlink_install filepath dest) 
+  if (IS_SYMLINK ${filepath})
+    execute_process(
+      COMMAND readlink -f ${filepath}
+      OUTPUT_VARIABLE REAL_LIBRARY_PATH
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+  else (IS_SYMLINK ${filepath})
+    set(REAL_LIBRARY_PATH ${filepath})
+  endif (IS_SYMLINK ${filepath})
+  
+  install( FILES ${REAL_LIBRARY_PATH} DESTINATION ${dest} )
+endmacro(desymlink_install)
+
 # This functin installs a symbolic link
 macro(install_symlink filepath sympath symfile)
     install(DIRECTORY DESTINATION ${sympath})
