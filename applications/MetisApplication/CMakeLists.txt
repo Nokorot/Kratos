@@ -9,7 +9,11 @@ include_directories( ${KRATOS_SOURCE_DIR}/kratos )
 find_package(METIS REQUIRED)
 include_directories(${METIS_INCLUDE_DIR})
 link_directories(${METIS_LIBRARIES})
-install(FILES ${METIS_LIBRARIES} DESTINATION libs)
+link_directories(libs)
+# install(FILES ${METIS_LIBRARIES} DESTINATION libs)
+foreach (f ${METIS_LIBRARIES})
+    desymlink_install(${f} libs)
+endforeach (f ${METIS_LIBRARIES})
 
 ## Metis Core sources
 file( GLOB KRATOS_METIS_APPLICATION_CORE

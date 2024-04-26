@@ -102,7 +102,10 @@ kratos_python_install_directory(${INSTALL_PYTHON_USING_LINKS} ${CMAKE_CURRENT_SO
 
 # TODO: Move this to the new system. Not sure how it will work on windows but being Trilinos should give no problem.
 message(STATUS "Trilinos libs to be installed: " ${TRILINOS_LIBRARIES})
-install(FILES ${TRILINOS_LIBRARIES} DESTINATION libs )
+# install(FILES ${TRILINOS_LIBRARIES} DESTINATION libs )
+foreach (f ${TRILINOS_LIBRARIES})
+    desymlink_install(${f} libs)
+endforeach (f ${TRILINOS_LIBRARIES})
 
 # Kratos Testing. Install everything except sources to ensure that reference and configuration files are copied.
 if(${INSTALL_TESTING_FILES} MATCHES ON )
