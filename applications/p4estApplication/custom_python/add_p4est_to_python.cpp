@@ -33,7 +33,7 @@ void AddP4estToPython(pybind11::module& m)
     py::class_<P4estConnectivity, P4estConnectivity::Pointer>(
         m,"P4estConnectivity")
         .def(py::init<ModelPart &>())
-        .def("GetConnectivity", &P4estConnectivity::GetConnectivity)
+        .def("VTKWriteFile", &P4estConnectivity::VTKWriteFile)
         ;
 
 

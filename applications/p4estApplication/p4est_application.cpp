@@ -49,7 +49,7 @@ void P4estInitialize(const DataCommunicator& rDataComm)
         int argc = 0;
         char** argv = nullptr;
 
-        sc_MPI_Init(argc, argv);
+        sc_MPI_Init(&argc, &argv);
         // return;
     }
 
